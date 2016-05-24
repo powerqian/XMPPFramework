@@ -39,7 +39,7 @@ grep '#define _XMPP_' -r /Extensions \
 | perl -pe 's/Extensions\/([A-z0-9_]*)\/([A-z]*.h).*/\n#ifdef HAVE_XMPP_SUBSPEC_\U\1\n\E#import "\2"\n#endif/' \
 >> XMPPFramework.h
 END
-
+
 s.preserve_path = 'module/module.modulemap'
 #s.module_map = 'module/module.modulemap'
 
@@ -50,8 +50,8 @@ core.libraries = 'xml2', 'resolv'
 core.xcconfig = { 'HEADER_SEARCH_PATHS' => '$(inherited) $(SDKROOT)/usr/include/libxml2 $(PODS_ROOT)/XMPPFramework/module $(SDKROOT)/usr/include/libresolv',
 'LIBRARY_SEARCH_PATHS' => '"$(PODS_ROOT)/XMPPFramework/Vendor/libidn"', 'CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES' => 'YES', 'OTHER_LDFLAGS' => '"-lxml2"', 'ENABLE_BITCODE' => 'NO'
 }
-core.dependency 'CocoaLumberjack','~>1.9'
-core.dependency 'CocoaAsyncSocket','~>7.4.1'
+core.dependency 'CocoaLumberjack','~>2.0'
+core.dependency 'CocoaAsyncSocket','~>7.4'
 core.ios.dependency 'XMPPFramework/KissXML'
 end
 
